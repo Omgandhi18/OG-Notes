@@ -1,0 +1,6 @@
+framework module Pods_OG_Notes_OG_NotesUITests {
+  umbrella header "Pods-OG Notes-OG NotesUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
