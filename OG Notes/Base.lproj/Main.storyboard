@@ -73,6 +73,26 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fX7-fY-nw3">
+                                <rect key="frame" x="0.0" y="189" width="393" height="629"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No notes added yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osb-5m-wcT">
+                                        <rect key="frame" x="16" y="279.66666666666669" width="361" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="TAf-LS-O9I"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="osb-5m-wcT" secondAttribute="trailing" constant="16" id="8ls-xc-NYS"/>
+                                    <constraint firstItem="osb-5m-wcT" firstAttribute="centerY" secondItem="fX7-fY-nw3" secondAttribute="centerY" id="aCl-gn-BlU"/>
+                                    <constraint firstItem="osb-5m-wcT" firstAttribute="leading" secondItem="fX7-fY-nw3" secondAttribute="leading" constant="16" id="max-cd-rfj"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oqe-l4-ezd">
                                 <rect key="frame" x="294" y="719" width="75" height="75"/>
                                 <constraints>
@@ -96,19 +116,24 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cAW-LW-VXl" secondAttribute="trailing" constant="16" id="1b6-ss-Wau"/>
+                            <constraint firstItem="fX7-fY-nw3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6il-jo-ogJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oqe-l4-ezd" secondAttribute="trailing" constant="24" id="EWp-6u-wfu"/>
                             <constraint firstItem="cnE-Ts-chn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="HAO-1E-z3C"/>
                             <constraint firstItem="cAW-LW-VXl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="K5o-AC-HEB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fX7-fY-nw3" secondAttribute="trailing" id="KsR-ev-HFL"/>
                             <constraint firstItem="cnE-Ts-chn" firstAttribute="top" secondItem="cAW-LW-VXl" secondAttribute="bottom" id="M3E-z7-KN0"/>
+                            <constraint firstItem="fX7-fY-nw3" firstAttribute="top" secondItem="cAW-LW-VXl" secondAttribute="bottom" id="iYl-hq-hbn"/>
                             <constraint firstItem="oqe-l4-ezd" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-24" id="lsJ-cF-mGg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cnE-Ts-chn" secondAttribute="bottom" constant="8" id="mzu-BX-1Fq"/>
                             <constraint firstItem="cAW-LW-VXl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="pC8-hF-MK9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fX7-fY-nw3" secondAttribute="bottom" id="xGK-56-ouZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cnE-Ts-chn" secondAttribute="trailing" constant="8" id="zOT-hP-QIM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ayK-wH-AbT"/>
                     <connections>
                         <outlet property="tblNotes" destination="cnE-Ts-chn" id="U9e-2R-RJo"/>
+                        <outlet property="viewNoNotes" destination="fX7-fY-nw3" id="wDe-fI-Ka8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -129,7 +154,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YvV-2U-mvd">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="791"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" findInteractionEnabled="YES" layoutManager="textKit2" translatesAutoresizingMaskIntoConstraints="NO" id="JDf-n3-wPv">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" findInteractionEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JDf-n3-wPv">
                                                 <rect key="frame" x="8" y="86" width="377" height="705"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
@@ -138,6 +163,7 @@
                                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                                 <viewLayoutGuide key="contentLayoutGuide" id="sSX-sp-Zua"/>
                                                 <viewLayoutGuide key="frameLayoutGuide" id="CiX-sk-Sv9"/>
+                                                <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES" shipmentTrackingNumber="YES" flightNumber="YES" lookupSuggestion="YES"/>

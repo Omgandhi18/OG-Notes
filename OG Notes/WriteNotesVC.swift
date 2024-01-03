@@ -23,6 +23,7 @@ class WriteNotesVC: UIViewController,UITextFieldDelegate,UITextViewDelegate,UIIm
     //MARK: ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let done  = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneTapped))
         if (note.noteText == "" || note.noteText.isEmpty){
             txtNoteText.text = "Enter your text here..."
@@ -30,7 +31,7 @@ class WriteNotesVC: UIViewController,UITextFieldDelegate,UITextViewDelegate,UIIm
         }
         else{
             txtNoteText.text = note.noteText
-            txtNoteText.textColor = UIColor.black
+            txtNoteText.textColor = .label
         }
         if(note.headingText.isEmpty || note.headingText == ""){
             txtNoteHeading.placeholder = "Untitled"
@@ -136,7 +137,7 @@ class WriteNotesVC: UIViewController,UITextFieldDelegate,UITextViewDelegate,UIIm
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.lightGray {
             textView.text = nil
-            textView.textColor = UIColor.black
+            textView.textColor = UIColor.label
         }
     }
     func textViewDidEndEditing(_ textView: UITextView) {

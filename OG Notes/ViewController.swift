@@ -10,6 +10,7 @@ import RealmSwift
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
     //MARK: Outlets
     @IBOutlet weak var tblNotes: UITableView!
+    @IBOutlet weak var viewNoNotes: UIView!
     
     //MARK: Variables
     var notesArr = [Notes]()
@@ -24,10 +25,18 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         // Do any additional setup after loading the view.
         let realmResult: Results<Notes> = realm.objects(Notes.self)
         notesArr = realmResult.toArray()
+        if notesArr.count == 0{
+            viewNoNotes.isHidden = false
+            
+        }
+        else{
+            viewNoNotes.isHidden = true
+            tblNotes.delegate = self
+            tblNotes.dataSource = self
+            tblNotes.reloadData()
+        }
         print(notesArr)
-        tblNotes.delegate = self
-        tblNotes.dataSource = self
-        tblNotes.reloadData()
+        
     }
     
     //MARK: Tableview methods
@@ -72,6 +81,13 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 // Delete the Todo.
                 realm.delete(noteToDelete)
                 notesArr.remove(at: indexPath.row)
+                if notesArr.count == 0{
+                    viewNoNotes.isHidden = false
+                    
+                }
+                else{
+                    viewNoNotes.isHidden = true
+                }
                 tblNotes.reloadData()
             }
                 }
