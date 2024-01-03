@@ -12,36 +12,34 @@ class WriteNotesVC: UIViewController,UITextFieldDelegate,UITextViewDelegate,UIIm
 //MARK: Outlets
     @IBOutlet weak var txtNoteHeading: UITextField!
     @IBOutlet weak var txtNoteText: UITextView!
-    @IBOutlet weak var btnCamera: UIButton!
+    @IBOutlet weak var viewBack: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var txtViewHeight: NSLayoutConstraint!
     //MARK: Variables
-    var note = Notes(headingText: "", noteText: "")
+    var note = Notes(id: 0,headingText: "", noteText: "")
     var isFromWrite = false
     
     //MARK: ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         let done  = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneTapped))
-        txtNoteText.text = "Enter your text here..."
-        txtNoteText.textColor = UIColor.lightGray
+        if (note.noteText == "" || note.noteText.isEmpty){
+            txtNoteText.text = "Enter your text here..."
+            txtNoteText.textColor = UIColor.lightGray
+        }
+        else{
+            txtNoteText.text = note.noteText
+            txtNoteText.textColor = UIColor.black
+        }
+        if(note.headingText.isEmpty || note.headingText == ""){
+            txtNoteHeading.placeholder = "Untitled"
+        }
+        else{
+            txtNoteHeading.text = note.headingText
+        }
+            
         self.navigationItem.rightBarButtonItem = done
-        
-        let gallery = UIAction(title: "From photos",
-          image: UIImage(systemName: "heart.fill")) { _ in
-          // Perform action
-            let galleryPicker = self.imagePicker(sourceType: .photoLibrary)
-            self.present(galleryPicker, animated: true)
-        }
-
-        let camera = UIAction(title: "Open Camera",
-          image: UIImage(systemName: "square.and.arrow.up.fill")) { action in
-          // Perform action
-            let cameraPicker = self.imagePicker(sourceType: .camera)
-            self.present(cameraPicker, animated: true)
-        }
-        let items = [gallery, camera]
-        btnCamera.menu = UIMenu(children: items)
-        btnCamera.showsMenuAsPrimaryAction = true
 
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -52,11 +50,11 @@ class WriteNotesVC: UIViewController,UITextFieldDelegate,UITextViewDelegate,UIIm
         else{
             let realm = try! Realm()
             let realmResult: Results<Notes> = realm.objects(Notes.self)
-            var notesArr = realmResult.toArray()
+            let notesArr = realmResult.toArray()
             var noteHeading = ""
             var noteText = ""
             if txtNoteHeading.text == "" || txtNoteHeading.hasText == false{
-                noteHeading = "Untitled"
+                noteHeading = ""
             }
             else{
                 noteHeading = txtNoteHeading.text ?? ""
@@ -67,15 +65,14 @@ class WriteNotesVC: UIViewController,UITextFieldDelegate,UITextViewDelegate,UIIm
             else{
                 noteText = txtNoteText.text ?? ""
             }
-            note = Notes(headingText: noteHeading, noteText: noteText)
-            if notesArr.contains(where: {$0.noteText == note.noteText && $0.headingText == note.headingText}){
+            if notesArr.contains(where: {$0.id == note.id}){
                 try! realm.write{
                     note.headingText = noteHeading
                     note.noteText = noteText
                 }
             }
             else{
-                
+                note = Notes(id: Int.random(in: 1...999999), headingText: noteHeading, noteText: noteText)
                 try! realm.write{
                     realm.add(note)
                 }
@@ -103,7 +100,7 @@ class WriteNotesVC: UIViewController,UITextFieldDelegate,UITextViewDelegate,UIIm
             var noteHeading = ""
             var noteText = ""
             if txtNoteHeading.text == "" || txtNoteHeading.hasText == false{
-                noteHeading = "Untitled"
+                noteHeading = ""
             }
             else{
                 noteHeading = txtNoteHeading.text ?? ""
@@ -114,46 +111,21 @@ class WriteNotesVC: UIViewController,UITextFieldDelegate,UITextViewDelegate,UIIm
             else{
                 noteText = txtNoteText.text ?? ""
             }
-            note = Notes(headingText: noteHeading, noteText: noteText)
-            if notesArr.contains(where: {$0.noteText == note.noteText && $0.headingText == note.headingText}){
+            
+            if notesArr.contains(where: {$0.id == note.id}){
                 try! realm.write{
                     note.headingText = noteHeading
                     note.noteText = noteText
                 }
             }
             else{
-               
+                note = Notes(id: Int.random(in: 1...999999), headingText: noteHeading, noteText: noteText)
                 try! realm.write{
                     realm.add(note)
                 }
                
             }
         }
-    }
-    func imagePicker(sourceType: UIImagePickerController.SourceType)->UIImagePickerController {
-        let imagePicker = UIImagePickerController ()
-        imagePicker.sourceType = sourceType
-        imagePicker.delegate = self
-        return imagePicker
-    }
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let image = info[.originalImage] as! UIImage
-        //create and NSTextAttachment and add your image to it.
-        let attachment = NSTextAttachment()
-        attachment.image = image
-        let oldWidth = attachment.image!.size.width;
-        //put your NSTextAttachment into and attributedString
-        let scaleFactor = oldWidth / (txtNoteText.frame.size.width - 10);
-        attachment.image = UIImage(cgImage: attachment.image!.cgImage!, scale: scaleFactor, orientation: .downMirrored)
-        var attrStringWithImage = NSAttributedString(attachment: attachment)
-        let attString = NSAttributedString(attachment: attachment)
-        //add this attributed string to the current position.
-        txtNoteText.textStorage.append(attString)
-        dismiss(animated: true)
-        
-    }
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        
     }
     //MARK: Textfield delegate methods
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -174,7 +146,13 @@ class WriteNotesVC: UIViewController,UITextFieldDelegate,UITextViewDelegate,UIIm
         }
     }
     func textViewDidChange(_ textView: UITextView) {
-       
+        var frame = textView.frame;
+
+        frame.size = textView.contentSize;
+        txtViewHeight.constant = textView.sizeThatFits(CGSizeMake(textView.frame.size.width, CGFloat.greatestFiniteMagnitude)).height
+//        textView.frame = frame;
+//        viewHeight.constant = txtNoteText.frame.height + textView.frame.height
     }
     
 }
+

@@ -42,9 +42,26 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let note = notesArr[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell") as! NoteCell
         cell.selectionStyle = .none
-        cell.lblHeading.text = note.headingText
-        cell.lblNoteText.text = note.noteText
+        if note.headingText == "" || note.headingText.isEmpty{
+            cell.lblHeading.text = "Untitled"
+        }
+        else{
+            cell.lblHeading.text = note.headingText
+        }
+        if note.noteText == "" || note.noteText.isEmpty{
+            cell.lblNoteText.text = "No additional text"
+        }
+        else{
+            cell.lblNoteText.text = note.noteText
+        }
+        
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "WriteNoteStory") as! WriteNotesVC
+        vc.note = notesArr[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let realm = try! Realm()

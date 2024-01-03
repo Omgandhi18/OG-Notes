@@ -123,61 +123,79 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Note heading" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="byk-ic-vBk">
-                                <rect key="frame" x="16" y="75" width="369" height="70"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bH7-Ts-hes">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YvV-2U-mvd">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="791"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" findInteractionEnabled="YES" layoutManager="textKit2" translatesAutoresizingMaskIntoConstraints="NO" id="JDf-n3-wPv">
+                                                <rect key="frame" x="8" y="86" width="377" height="705"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="705" id="6JZ-El-4A8"/>
+                                                </constraints>
+                                                <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+                                                <viewLayoutGuide key="contentLayoutGuide" id="sSX-sp-Zua"/>
+                                                <viewLayoutGuide key="frameLayoutGuide" id="CiX-sk-Sv9"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES" shipmentTrackingNumber="YES" flightNumber="YES" lookupSuggestion="YES"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="XAz-ag-ayi" id="vCo-pe-JKQ"/>
+                                                </connections>
+                                            </textView>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Note heading" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="byk-ic-vBk">
+                                                <rect key="frame" x="16" y="16" width="361" height="70"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="70" id="Oe7-xB-idx"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="XAz-ag-ayi" id="EZm-hU-Sdc"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="byk-ic-vBk" firstAttribute="leading" secondItem="YvV-2U-mvd" secondAttribute="leading" constant="16" id="0Jk-Oo-bb8"/>
+                                            <constraint firstItem="byk-ic-vBk" firstAttribute="top" secondItem="YvV-2U-mvd" secondAttribute="top" constant="16" id="ART-Hf-OTB"/>
+                                            <constraint firstItem="JDf-n3-wPv" firstAttribute="top" secondItem="byk-ic-vBk" secondAttribute="bottom" id="S9X-ET-FNH"/>
+                                            <constraint firstAttribute="bottom" secondItem="JDf-n3-wPv" secondAttribute="bottom" id="aYo-c2-5or"/>
+                                            <constraint firstItem="JDf-n3-wPv" firstAttribute="leading" secondItem="YvV-2U-mvd" secondAttribute="leading" constant="8" id="iBq-Hb-G9I"/>
+                                            <constraint firstItem="JDf-n3-wPv" firstAttribute="centerX" secondItem="YvV-2U-mvd" secondAttribute="centerX" id="srG-7z-5DW"/>
+                                            <constraint firstAttribute="trailing" secondItem="byk-ic-vBk" secondAttribute="trailing" constant="16" id="uZk-WW-UYC"/>
+                                            <constraint firstAttribute="trailing" secondItem="JDf-n3-wPv" secondAttribute="trailing" constant="8" id="wnH-QD-Cec"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="ZiI-2o-Mcj"/>
+                                    <constraint firstItem="YvV-2U-mvd" firstAttribute="leading" secondItem="bH7-Ts-hes" secondAttribute="leading" id="GLU-c5-BPb"/>
+                                    <constraint firstAttribute="trailing" secondItem="YvV-2U-mvd" secondAttribute="trailing" id="Qke-Hm-hgB"/>
+                                    <constraint firstItem="YvV-2U-mvd" firstAttribute="centerX" secondItem="bH7-Ts-hes" secondAttribute="centerX" id="a0F-pl-san"/>
+                                    <constraint firstItem="YvV-2U-mvd" firstAttribute="top" secondItem="bH7-Ts-hes" secondAttribute="top" id="dVq-Lt-OR5"/>
+                                    <constraint firstAttribute="bottom" secondItem="YvV-2U-mvd" secondAttribute="bottom" constant="-32" id="idB-ah-O1T"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="XAz-ag-ayi" id="EZm-hU-Sdc"/>
-                                </connections>
-                            </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JDf-n3-wPv">
-                                <rect key="frame" x="8" y="145" width="377" height="657"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES" shipmentTrackingNumber="YES" flightNumber="YES" lookupSuggestion="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="XAz-ag-ayi" id="vCo-pe-JKQ"/>
-                                </connections>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAh-nv-182">
-                                <rect key="frame" x="294" y="719" width="75" height="75"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="SCd-6t-jr1"/>
-                                    <constraint firstAttribute="width" constant="75" id="ibx-WC-ybK"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <size key="titleShadowOffset" width="1" height="4"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="camera.fill" catalog="system" title="">
-                                    <backgroundConfiguration key="background" cornerRadius="37.5">
-                                        <color key="backgroundColor" name="Button Color"/>
-                                    </backgroundConfiguration>
-                                </buttonConfiguration>
-                            </button>
+                                <viewLayoutGuide key="contentLayoutGuide" id="WnV-K2-jzh"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="Oa0-1j-hC6"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="COc-Uh-ZRL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="JDf-n3-wPv" firstAttribute="top" secondItem="byk-ic-vBk" secondAttribute="bottom" id="0GS-2c-PM0"/>
-                            <constraint firstItem="byk-ic-vBk" firstAttribute="leading" secondItem="COc-Uh-ZRL" secondAttribute="leading" constant="16" id="1DJ-Of-lfU"/>
-                            <constraint firstItem="byk-ic-vBk" firstAttribute="top" secondItem="COc-Uh-ZRL" secondAttribute="top" constant="16" id="1kV-lk-dEm"/>
-                            <constraint firstItem="COc-Uh-ZRL" firstAttribute="trailing" secondItem="kAh-nv-182" secondAttribute="trailing" constant="24" id="9lU-HN-tGF"/>
-                            <constraint firstItem="JDf-n3-wPv" firstAttribute="leading" secondItem="COc-Uh-ZRL" secondAttribute="leading" constant="8" id="Ckn-3Y-mp1"/>
-                            <constraint firstItem="COc-Uh-ZRL" firstAttribute="trailing" secondItem="JDf-n3-wPv" secondAttribute="trailing" constant="8" id="Ef6-d5-Y0m"/>
-                            <constraint firstItem="COc-Uh-ZRL" firstAttribute="bottom" secondItem="JDf-n3-wPv" secondAttribute="bottom" constant="16" id="RE3-zo-r6w"/>
-                            <constraint firstItem="COc-Uh-ZRL" firstAttribute="bottom" secondItem="kAh-nv-182" secondAttribute="bottom" constant="24" id="u1T-ty-p6J"/>
-                            <constraint firstItem="COc-Uh-ZRL" firstAttribute="trailing" secondItem="byk-ic-vBk" secondAttribute="trailing" constant="8" id="vW2-gX-Bor"/>
+                            <constraint firstItem="bH7-Ts-hes" firstAttribute="leading" secondItem="phy-K3-Y55" secondAttribute="leading" id="Jq9-6N-umR"/>
+                            <constraint firstItem="COc-Uh-ZRL" firstAttribute="bottom" secondItem="bH7-Ts-hes" secondAttribute="bottom" id="R3W-Up-8MZ"/>
+                            <constraint firstItem="bH7-Ts-hes" firstAttribute="top" secondItem="COc-Uh-ZRL" secondAttribute="top" id="djh-DA-c5h"/>
+                            <constraint firstAttribute="trailing" secondItem="bH7-Ts-hes" secondAttribute="trailing" id="fdc-jY-J80"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btnCamera" destination="kAh-nv-182" id="AEM-3l-K8Q"/>
+                        <outlet property="scrollView" destination="bH7-Ts-hes" id="pJV-uO-cC7"/>
                         <outlet property="txtNoteHeading" destination="byk-ic-vBk" id="f9P-k9-Q9e"/>
                         <outlet property="txtNoteText" destination="JDf-n3-wPv" id="at2-9Y-6JV"/>
+                        <outlet property="txtViewHeight" destination="6JZ-El-4A8" id="4BY-P0-9gP"/>
+                        <outlet property="viewBack" destination="YvV-2U-mvd" id="AFi-T9-cgo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3fp-Sx-T7X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -205,7 +223,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera.fill" catalog="system" width="128" height="93"/>
         <image name="pencil.line" catalog="system" width="128" height="117"/>
         <namedColor name="Button Color">
             <color red="0.89803921568627454" green="0.41960784313725491" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
