@@ -18,6 +18,9 @@
 		C00E09552B3D6F67003F2C0D /* OG_NotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00E09542B3D6F67003F2C0D /* OG_NotesTests.swift */; };
 		C00E095F2B3D6F67003F2C0D /* OG_NotesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00E095E2B3D6F67003F2C0D /* OG_NotesUITests.swift */; };
 		C00E09612B3D6F67003F2C0D /* OG_NotesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00E09602B3D6F67003F2C0D /* OG_NotesUITestsLaunchTests.swift */; };
+		C01E6FDA2B4A520A005B644A /* StartupScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01E6FD92B4A520A005B644A /* StartupScreenVC.swift */; };
+		C01E6FDC2B4A535C005B644A /* Notes Dark.gif in Resources */ = {isa = PBXBuildFile; fileRef = C01E6FDB2B4A535C005B644A /* Notes Dark.gif */; };
+		C01E6FDE2B4A536E005B644A /* Notes gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = C01E6FDD2B4A536E005B644A /* Notes gif.gif */; };
 		C06D9CC22B44001F00B07D89 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D9CC12B44001F00B07D89 /* NoteCell.swift */; };
 		C06D9CC52B4400CA00B07D89 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D9CC42B4400CA00B07D89 /* NoteModel.swift */; };
 		C06D9CC82B44085F00B07D89 /* WriteNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D9CC72B44085F00B07D89 /* WriteNotesVC.swift */; };
@@ -62,6 +65,9 @@
 		C00E095A2B3D6F67003F2C0D /* OG NotesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OG NotesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C00E095E2B3D6F67003F2C0D /* OG_NotesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OG_NotesUITests.swift; sourceTree = "<group>"; };
 		C00E09602B3D6F67003F2C0D /* OG_NotesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OG_NotesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C01E6FD92B4A520A005B644A /* StartupScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupScreenVC.swift; sourceTree = "<group>"; };
+		C01E6FDB2B4A535C005B644A /* Notes Dark.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Notes Dark.gif"; sourceTree = "<group>"; };
+		C01E6FDD2B4A536E005B644A /* Notes gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Notes gif.gif"; sourceTree = "<group>"; };
 		C06D9CC12B44001F00B07D89 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		C06D9CC42B4400CA00B07D89 /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		C06D9CC72B44085F00B07D89 /* WriteNotesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteNotesVC.swift; sourceTree = "<group>"; };
@@ -145,6 +151,8 @@
 		C00E093C2B3D6F66003F2C0D /* OG Notes */ = {
 			isa = PBXGroup;
 			children = (
+				C01E6FDB2B4A535C005B644A /* Notes Dark.gif */,
+				C01E6FDD2B4A536E005B644A /* Notes gif.gif */,
 				C06D9CC62B44084A00B07D89 /* Controller */,
 				C06D9CC32B4400BB00B07D89 /* Model */,
 				C06D9CC02B44000A00B07D89 /* Views */,
@@ -196,6 +204,7 @@
 			children = (
 				C00E09412B3D6F66003F2C0D /* ViewController.swift */,
 				C06D9CC72B44085F00B07D89 /* WriteNotesVC.swift */,
+				C01E6FD92B4A520A005B644A /* StartupScreenVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -309,7 +318,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C01E6FDE2B4A536E005B644A /* Notes gif.gif in Resources */,
 				C00E094A2B3D6F67003F2C0D /* LaunchScreen.storyboard in Resources */,
+				C01E6FDC2B4A535C005B644A /* Notes Dark.gif in Resources */,
 				C00E09472B3D6F67003F2C0D /* Assets.xcassets in Resources */,
 				C00E09452B3D6F66003F2C0D /* Main.storyboard in Resources */,
 			);
@@ -444,6 +455,7 @@
 				C06D9CC82B44085F00B07D89 /* WriteNotesVC.swift in Sources */,
 				C00E093E2B3D6F66003F2C0D /* AppDelegate.swift in Sources */,
 				C00E09402B3D6F66003F2C0D /* SceneDelegate.swift in Sources */,
+				C01E6FDA2B4A520A005B644A /* StartupScreenVC.swift in Sources */,
 				C06D9CC22B44001F00B07D89 /* NoteCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

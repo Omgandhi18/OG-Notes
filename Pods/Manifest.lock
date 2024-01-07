@@ -5,22 +5,28 @@ PODS:
   - Realm/Headers (10.45.2)
   - RealmSwift (10.45.2):
     - Realm (= 10.45.2)
+  - SDWebImage (5.18.8):
+    - SDWebImage/Core (= 5.18.8)
+  - SDWebImage/Core (5.18.8)
 
 DEPENDENCIES:
   - IQKeyboardManagerSwift
   - RealmSwift (~> 10)
+  - SDWebImage
 
 SPEC REPOS:
   trunk:
     - IQKeyboardManagerSwift
     - Realm
     - RealmSwift
+    - SDWebImage
 
 SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 12d89768845bb77b55cc092ecc2b1f9370f06b76
   Realm: bc4fc31783a0b3e355edca05f167f6a49c544dc2
   RealmSwift: 234003b5fdb187c4b439d478662636d62a1f9de0
+  SDWebImage: a81bbb3ba4ea5f810f4069c68727cb118467a04a
 
-PODFILE CHECKSUM: cb936bff948f3d7fa668efef887642f6e93ca05f
+PODFILE CHECKSUM: d903aad0edbc0719ffd25f18554df7e3b57558fd
 
 COCOAPODS: 1.14.3

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IS9-5E-f9r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="33Y-tF-HXP">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="OG_Notes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeScreenStory" id="BYZ-38-t0r" customClass="ViewController" customModule="OG_Notes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -138,7 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1064.885496183206" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="1991.6030534351144" y="-2.1126760563380285"/>
         </scene>
         <!--Write NotesVC-->
         <scene sceneID="Ban-Wn-Nc2">
@@ -226,12 +226,44 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3fp-Sx-T7X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1936.6412213740457" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="2863.3587786259541" y="-2.1126760563380285"/>
+        </scene>
+        <!--Startup ScreenVC-->
+        <scene sceneID="vx1-cR-LeX">
+            <objects>
+                <viewController id="u93-iJ-bxJ" customClass="StartupScreenVC" customModule="OG_Notes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="snp-ti-8au">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cf2-fg-dgs" customClass="SDAnimatedImageView">
+                                <rect key="frame" x="76.666666666666686" y="306" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="Vl8-bC-XNI"/>
+                                    <constraint firstAttribute="width" constant="240" id="b7V-IZ-6Yi"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rsg-ac-gaB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Cf2-fg-dgs" firstAttribute="centerX" secondItem="snp-ti-8au" secondAttribute="centerX" id="Ecf-es-ro8"/>
+                            <constraint firstItem="Cf2-fg-dgs" firstAttribute="centerY" secondItem="snp-ti-8au" secondAttribute="centerY" id="yQX-Vu-c4T"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="0vo-in-mqE"/>
+                    <connections>
+                        <outlet property="imgView" destination="Cf2-fg-dgs" id="5RK-ju-BeT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uyz-fh-xVr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="281.67938931297709" y="10.563380281690142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="be2-HY-j4r">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IS9-5E-f9r" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeNavigation" automaticallyAdjustsScrollViewInsets="NO" id="IS9-5E-f9r" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7Re-8a-oGf">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -245,7 +277,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BlG-vc-a4x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138.1679389312977" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="1064.885496183206" y="-2.1126760563380285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BCP-xR-Ib5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="33Y-tF-HXP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tyf-nK-jxY">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="u93-iJ-bxJ" kind="relationship" relationship="rootViewController" id="4h2-YF-kLr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OoM-qd-SRw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-645.03816793893122" y="10.563380281690142"/>
         </scene>
     </scenes>
     <resources>

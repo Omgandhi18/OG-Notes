@@ -8,6 +8,7 @@ target 'OG Notes' do
   # Pods for OG Notes
   pod 'RealmSwift', '~>10'
   pod 'IQKeyboardManagerSwift'
+  pod 'SDWebImage'
 
   target 'OG NotesTests' do
     inherit! :search_paths
