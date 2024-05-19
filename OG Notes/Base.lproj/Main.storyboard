@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="33Y-tF-HXP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="33Y-tF-HXP">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -206,14 +206,56 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="WnV-K2-jzh"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="Oa0-1j-hC6"/>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OGl-h8-BGv">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Rvb-xo-X0r">
+                                        <rect key="frame" x="146.66666666666666" y="327" width="100" height="98"/>
+                                        <color key="tintColor" systemColor="secondaryLabelColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="11E-S7-zGz"/>
+                                            <constraint firstAttribute="height" constant="100" id="PoP-Lm-3lZ"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This note is locked." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikB-0g-zjs">
+                                        <rect key="frame" x="98.333333333333329" y="442" width="196.66666666666669" height="28.666666666666686"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLW-0L-xid">
+                                        <rect key="frame" x="134" y="486.66666666666669" width="125" height="40.000000000000057"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                        <color key="tintColor" name="Button Color"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Unlock note"/>
+                                        <connections>
+                                            <action selector="btnUnlock:" destination="XAz-ag-ayi" eventType="touchUpInside" id="b95-rE-Tq1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="tLW-0L-xid" firstAttribute="top" secondItem="ikB-0g-zjs" secondAttribute="bottom" constant="16" id="ITz-fa-hN6"/>
+                                    <constraint firstItem="Rvb-xo-X0r" firstAttribute="centerX" secondItem="OGl-h8-BGv" secondAttribute="centerX" id="V8A-vf-J5u"/>
+                                    <constraint firstItem="tLW-0L-xid" firstAttribute="centerX" secondItem="OGl-h8-BGv" secondAttribute="centerX" id="Y6M-Ht-gha"/>
+                                    <constraint firstItem="ikB-0g-zjs" firstAttribute="top" secondItem="Rvb-xo-X0r" secondAttribute="bottom" constant="16" id="oxH-Jy-9UV"/>
+                                    <constraint firstItem="ikB-0g-zjs" firstAttribute="centerX" secondItem="OGl-h8-BGv" secondAttribute="centerX" id="unl-Q6-3TK"/>
+                                    <constraint firstItem="Rvb-xo-X0r" firstAttribute="centerY" secondItem="OGl-h8-BGv" secondAttribute="centerY" constant="-50" id="wIo-yU-7Ie"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="COc-Uh-ZRL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="OGl-h8-BGv" firstAttribute="trailing" secondItem="COc-Uh-ZRL" secondAttribute="trailing" id="67S-eR-auL"/>
                             <constraint firstItem="bH7-Ts-hes" firstAttribute="leading" secondItem="phy-K3-Y55" secondAttribute="leading" id="Jq9-6N-umR"/>
                             <constraint firstItem="COc-Uh-ZRL" firstAttribute="bottom" secondItem="bH7-Ts-hes" secondAttribute="bottom" id="R3W-Up-8MZ"/>
                             <constraint firstItem="bH7-Ts-hes" firstAttribute="top" secondItem="COc-Uh-ZRL" secondAttribute="top" id="djh-DA-c5h"/>
+                            <constraint firstAttribute="bottom" secondItem="OGl-h8-BGv" secondAttribute="bottom" id="dnF-uo-YUH"/>
+                            <constraint firstItem="OGl-h8-BGv" firstAttribute="leading" secondItem="COc-Uh-ZRL" secondAttribute="leading" id="eeI-Gn-t0F"/>
                             <constraint firstAttribute="trailing" secondItem="bH7-Ts-hes" secondAttribute="trailing" id="fdc-jY-J80"/>
+                            <constraint firstItem="OGl-h8-BGv" firstAttribute="top" secondItem="phy-K3-Y55" secondAttribute="top" id="kgP-wG-7nh"/>
                         </constraints>
                     </view>
                     <connections>
@@ -222,6 +264,7 @@
                         <outlet property="txtNoteText" destination="JDf-n3-wPv" id="at2-9Y-6JV"/>
                         <outlet property="txtViewHeight" destination="6JZ-El-4A8" id="4BY-P0-9gP"/>
                         <outlet property="viewBack" destination="YvV-2U-mvd" id="AFi-T9-cgo"/>
+                        <outlet property="viewLocked" destination="OGl-h8-BGv" id="0XU-j7-TFL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3fp-Sx-T7X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -299,12 +342,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="lock.fill" catalog="system" width="125" height="128"/>
         <image name="pencil.line" catalog="system" width="128" height="117"/>
         <namedColor name="Button Color">
             <color red="0.89803921568627454" green="0.41960784313725491" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

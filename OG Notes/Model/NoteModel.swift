@@ -11,12 +11,13 @@ class Notes: Object {
     @Persisted var id = Int()
    @Persisted var headingText: String = ""
     @Persisted var noteText: String = ""
-
-    convenience init(id: Int,headingText: String, noteText: String) {
+    @Persisted var isLocked: Bool = false
+    convenience init(id: Int,headingText: String, noteText: String, isLocked: Bool) {
        self.init()
         self.id = id
         self.headingText = headingText
         self.noteText = noteText
+        self.isLocked = isLocked
     }
        
 }
