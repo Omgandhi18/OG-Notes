@@ -103,6 +103,7 @@ class WriteNotesVC: UIViewController,UITextFieldDelegate,UITextViewDelegate,UIIm
     @IBAction func btnUnlock(_ sender: Any) {
         context = LAContext()
         lockNote(noteToLock: note, toLock: false)
+        lock.image = UIImage(systemName: "lock.open.fill")
     }
     @objc func lockUnlockNote(_ sender: Any){
         if isLocked{
